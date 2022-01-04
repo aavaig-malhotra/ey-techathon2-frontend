@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+svg {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+svg .state {
+  stroke: #666;
+  stroke-width: 1px;
+}
+
+svg .state:hover {
+  stroke: #383874;
+  stroke-width: 3px;
+  cursor: pointer;
+}
+
+/* #root {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 50px 150px;
+  text-align: center;
+  box-sizing: border-box;
+} */
+
+button {
+  width: 100px;
+  border: 1px solid #ffffff;
+  margin: 0 auto 5px;
+}
+
+.main-container {
+  height: 100vh !important;
+  width: 100% !important;
+  padding-top: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.wrapper-container {
+  height: 100%;
+}
+
+/* right container map page */
+.right-container,
+.left-container,
+.container-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+  height: '100%';
+}
+
+.left-container__top--tags,
+.left-container__top--stats,
+.left-container__heading,
+.prediction-input--year,
+.prediction-input--area {
+  width: 90%;
+  margin-bottom: 1.5rem;
+}
+
+.left-container__top--stats {
+  margin-bottom: 5rem;
+}
+
+.left-container__top--tags h1,
+.left-container__top--stats h1 {
+  font-size: 1.8rem;
+}
+
+.left-container__top--tags p,
+.left-container__top--stats p {
+  font-size: 1.5rem;
+}
+
+.left-container__top--stats p {
+  display: flex;
+  align-items: center;
+}
+
+.left-container__top--stats p .green-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  margin-left: 8px;
+}
+
+.right-container__top,
+.right-container__bottom {
+  border-radius: 8px;
+}
+
+.right-container__top {
+  margin-bottom: 1rem !important;
+}
+
+.left-container__bottom {
+  margin-top: 5rem !important;
+  border-radius: 8px;
+}
+
+.map-page-row {
+  margin-bottom: 5rem;
+}
+
+.map-toggle-buttons {
+  position: absolute;
+  width: 30%;
+  top: 5px;
+  right: 0;
+  z-index: 69;
+}
+
+.box-shadow-main {
+  box-shadow: var(--box-shadow-main);
+}
+
+.global-card-styles {
+  height: 100%;
+}
+
+.gauge-chart > div > div > table {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.prediction-form {
+  display: flex;
+  flex-direction: column;
+  width: '100%';
+  align-items: center;
+}
+
+.prediction-input--year,
+.prediction-input--area {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.prediction-input--year label,
+.prediction-input--area label {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.prediction-input--year input,
+.prediction-input--area input {
+  padding: 0.5rem;
+  width: 100%;
+  font-size: 1.4rem;
+  border-radius: 4px;
+  border: 1px solid gray;
+  background-color: transparent;
+  color: black;
+}
+
+.prediction-input--submit {
+  width: 90%;
+}
+
+.prediction-input--submit button {
+  padding: 0.5rem;
+  width: 60%;
+  font-size: 1.4rem;
+  border-radius: 4px;
+}
+
+.tweet {
+  width: 90%;
+}
