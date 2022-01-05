@@ -260,3 +260,99 @@ button {
     margin-right: 1rem;
   }
 }
+
+@media only screen and (max-width: 620px) {
+  .map-page-row-top {
+    display: grid !important;
+    grid-template-rows: 1fr 2fr 2fr;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .left-col {
+    grid-row: 1/2;
+    grid-column: 1/-1;
+  }
+  .mid-col {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+    width: 100%;
+  }
+  .right-col {
+    grid-row: 3/-1;
+    grid-column: 1/-1;
+  }
+
+  .right-container {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* .right-container__bottom{
+
+  } */
+
+  .right-container__top,
+  .right-container__bottom {
+    width: 90% !important;
+  }
+  .right-container__top {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .map-page-row-mid-1 {
+    display: grid !important;
+    grid-template-rows: repeat(3, 1fr);
+
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .map-page-row-mid-1 > *:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  .aqi-meter {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+  }
+  .land-cover-graph {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+  }
+  .rainfall-graph {
+    grid-row: 3/-1;
+    grid-column: 1/-1;
+  }
+
+  .rainfall-graph-card,
+  .aqi-meter-card,
+  .land-cover-graph-card,
+  .combo-chart-card {
+    width: 90% !important;
+  }
+
+  .map-row-bottom-card {
+    width: 100% !important;
+  }
+  .map-row-bottom-left-container {
+    margin-right: 1rem;
+  }
+
+  /* .top-bottom-cards {
+    display: flex !important;
+    flex-direction: row !important;
+  } */
+
+  .map-page-bottom-container-1,
+  .map-page-bottom-container-2 {
+    margin-bottom: 2rem !important;
+    width: 90%;
+  }
+
+  .map-page-bottom-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+  }
+}

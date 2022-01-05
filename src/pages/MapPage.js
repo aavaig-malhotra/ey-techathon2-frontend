@@ -652,8 +652,11 @@ function MapPage() {
           </Col>
         </Row>
 
-        <Row className='map-page-row' style={{ paddingBottom: '10px' }}>
-          <Col xs lg={6}>
+        <Row
+          className='map-page-row map-page-bottom-row'
+          style={{ paddingBottom: '10px' }}
+        >
+          <Col xs lg={6} className='map-page-bottom-container-1'>
             <div
               className='select-dropdowns'
               style={{
@@ -755,7 +758,7 @@ function MapPage() {
               </Row>
             </div>
           </Col>
-          <Col xs lg={6}>
+          <Col xs lg={6} className='map-page-bottom-container-2'>
             {' '}
             <Card
               bg='light'
