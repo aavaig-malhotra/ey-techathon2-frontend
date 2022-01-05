@@ -259,7 +259,10 @@ function StatesPage() {
                   </div>
 
                   <div className='prediction-input--submit'>
-                    <button type='submit' onClick={onSubmitPostRequest}>
+                    <button
+                      type='submit'
+                      // onClick={onSubmitPostRequest}
+                    >
                       Go{' '}
                     </button>
                   </div>

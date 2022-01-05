@@ -13,6 +13,24 @@ html {
   font-size: 62.5%;
 }
 
+@media only screen and (max-width: 1400px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  html {
+    font-size: 43.75%;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
