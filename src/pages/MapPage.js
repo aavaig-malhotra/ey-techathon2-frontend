@@ -35,8 +35,6 @@ import ComboChart2 from '../components/maps/ComboChart/ComboChart2';
 import Top5BarChart from '../components/maps/BarChart/Top5BarChart';
 import Bottom5BarChart from '../components/maps/BarChart/Bottom5BarChart';
 
-// const token = `sk.eyJ1IjoiYWF2YWlnMjA2OSIsImEiOiJja3gyNmU5dWMwOGNwMm5xazJsbTJkdndsIn0.P8U1m-KogLxOchRCfvY60Q`;
-
 function MapPage() {
   const [normalSelected, setNormalSelected] = useState(true);
 
@@ -417,12 +415,15 @@ function MapPage() {
           {/* col-right */}
           <Col style={{ height: '100%' }} className='right-col'>
             <Row style={{ height: '100%' }}>
-              <Col style={{ height: '100%' }} className='right-container'>
+              <Col
+                style={{ height: '100%', padding: ' 2rem' }}
+                className='right-container'
+              >
                 <Card
                   bg='light'
                   // border='light'
                   style={{
-                    width: '90%',
+                    width: '100%',
                     border: '1px transparent',
                     height: '100%',
                     overflow: 'hidden',
@@ -458,7 +459,7 @@ function MapPage() {
                 </Card>
                 <Card
                   bg='light'
-                  style={{ width: '90%' }}
+                  style={{ width: '100%' }}
                   className='mb-2 right-container__bottom box-shadow-main global-card-styles'
                   // border='light'
                 >
@@ -491,12 +492,12 @@ function MapPage() {
           </Col>
         </Row>
 
-        {/* 4-cards */}
+        {/* 3-cards */}
         <Row className='map-page-row map-page-row-mid-1'>
-          <Col className='container-card aqi-meter'>
+          <Col className='container-card aqi-meter' style={{ padding: '2rem' }}>
             <Card
               bg='light'
-              style={{ width: '90%' }}
+              style={{ width: '100%' }}
               className='mb-2 right-container__bottom box-shadow-main global-card-styles aqi-meter-card'
               // border='light'
             >
@@ -523,10 +524,13 @@ function MapPage() {
               </Card.Body>
             </Card>
           </Col>
-          <Col className='container-card land-cover-graph'>
+          <Col
+            className='container-card land-cover-graph'
+            style={{ padding: '2rem' }}
+          >
             <Card
               bg='light'
-              style={{ width: '90%' }}
+              style={{ width: '100%' }}
               className='mb-2 right-container__bottom box-shadow-main global-card-styles land-cover-graph-card'
               // border='light'
             >
@@ -558,10 +562,13 @@ function MapPage() {
               </Card.Body>
             </Card>
           </Col>
-          <Col className='container-card rainfall-graph'>
+          <Col
+            className='container-card rainfall-graph'
+            style={{ padding: '2rem' }}
+          >
             <Card
               bg='light'
-              style={{ width: '90%' }}
+              style={{ width: '100%' }}
               className='mb-2 right-container__bottom box-shadow-main global-card-styles rainfall-graph-card'
               // border='light'
             >
@@ -593,15 +600,15 @@ function MapPage() {
         </Row>
 
         <Row className='map-page-row'>
-          <Col className='container-card'>
+          <Col className='container-card' style={{ padding: '2rem' }}>
             <Card
               bg='light'
-              style={{ width: '97%' }}
+              style={{ width: '100%' }}
               className='mb-2 right-container__bottom box-shadow-main global-card-styles combo-chart-card'
               // border='light'
             >
               <Card.Body style={{ height: '40rem' }}>
-                <div className='select-dropdowns'>
+                <div className='select-dropdowns combo-select-year'>
                   <select
                     value={comboData2Year}
                     onChange={(e) => {
@@ -656,14 +663,21 @@ function MapPage() {
           className='map-page-row map-page-bottom-row'
           style={{ paddingBottom: '10px' }}
         >
-          <Col xs lg={6} className='map-page-bottom-container-1'>
+          <Col
+            xs
+            lg={6}
+            className='map-page-bottom-container-1'
+            // style={{ marginRight: '5px' }}
+          >
             <div
               className='select-dropdowns'
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                width: '95%',
-                marginBottom: '5px',
+                width: '100%',
+                padding: '0 2rem',
+                marginBottom: '15px',
+                margin: '0 auto',
               }}
             >
               {/* parameters */}
@@ -722,18 +736,24 @@ function MapPage() {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
+                // alignItems: 'center',
+                width: '100%',
               }}
             >
               <Row
                 style={{
                   marginBottom: '1rem',
+                  // width: '100%',
+                  display: 'flex',
+                  justifyContent: 'end',
+                  padding: '2rem',
                 }}
                 className='map-row-bottom-left-container'
               >
                 {' '}
                 <Card
                   bg='light'
-                  style={{ width: '95%' }}
+                  style={{ width: '100%' }}
                   className='mb-2 right-container__bottom box-shadow-main global-card-styles map-row-bottom-card'
                   // border='light'
                 >
@@ -743,11 +763,20 @@ function MapPage() {
                 </Card>
               </Row>
 
-              <Row className='map-row-bottom-left-container'>
+              <Row
+                className='map-row-bottom-left-container'
+                style={{
+                  display: 'flex',
+                  justifyContent: 'end',
+                  padding: '2rem',
+                }}
+              >
                 {' '}
                 <Card
                   bg='light'
-                  style={{ width: '95%' }}
+                  style={{
+                    width: '100%',
+                  }}
                   className='right-container__bottom box-shadow-main global-card-styles map-row-bottom-card'
                   // border='light'
                 >
@@ -758,11 +787,16 @@ function MapPage() {
               </Row>
             </div>
           </Col>
-          <Col xs lg={6} className='map-page-bottom-container-2'>
+          <Col
+            xs
+            lg={6}
+            className='map-page-bottom-container-2'
+            style={{ padding: '2rem' }}
+          >
             {' '}
             <Card
               bg='light'
-              style={{ width: '97%' }}
+              style={{ width: '100%' }}
               className='right-container__bottom box-shadow-main global-card-styles map-row-bottom-card'
               // border='light'
             >

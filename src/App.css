@@ -18,6 +18,18 @@ svg .state:hover {
   cursor: pointer;
 }
 
+select {
+  padding: 1rem 1.5rem;
+  font-size: 1.3rem;
+  border-radius: 6px;
+}
+
+.combo-select-year {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
 /* #root {
   display: flex;
   flex-direction: column;
@@ -39,9 +51,10 @@ button {
   height: 100vh !important;
   width: 100% !important;
   padding-top: 0;
-  padding-left: 20px;
+  /* padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 20px; */
+  padding: 0 2rem 2rem;
   margin-bottom: 20px;
 }
 
@@ -342,6 +355,10 @@ button {
   /* .top-bottom-cards {
     display: flex !important;
     flex-direction: row !important;
+  } */
+  /* .map-page-bottom-container-1{
+    display : flex;
+    flex-direction: column;
   } */
 
   .map-page-bottom-container-1,
