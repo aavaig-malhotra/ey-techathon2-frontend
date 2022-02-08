@@ -3,7 +3,7 @@ import './App.css';
 import MapPage from './pages/MapPage';
 import NavBar from './components/NavBar/NavBar';
 
-import { Button, Container, Row, Col, Figure } from 'react-bootstrap';
+// import { Button, Container, Row, Col, Figure } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import StatesPage from './pages/StatesPage';
 

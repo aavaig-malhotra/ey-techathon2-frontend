@@ -12,7 +12,7 @@ function Top5BarChart({ data, title }) {
           loader={<div>Loading Chart</div>}
           data={[['State', 'Value'], ...data]}
           options={{
-            title: `Top 5 Mangrove Forest Area`,
+            title: `Top 5 ${title}`,
             //   width: 600,
             //   height: 400,
             bar: { groupWidth: '95%' },

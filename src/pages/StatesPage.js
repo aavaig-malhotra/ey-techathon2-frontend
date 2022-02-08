@@ -36,6 +36,9 @@ import HimachalPradeshClimate from '../components/gifMaps/HimachalPradeshClimate
 import TamilNaduClimate from '../components/gifMaps/TamilNaduClimate';
 import HimachalPradeshVegetation from '../components/gifMaps/HimachalPradeshVegetation';
 
+const localUrl = 'http://127.0.0.1:5000/';
+const hostedUrl = 'https://ey-flask-app.herokuapp.com/';
+
 function StatesPage() {
   const params = useParams();
 
@@ -72,15 +75,12 @@ function StatesPage() {
     .join('')}Climate`;
 
   const fetchData = async () => {
-    const response = await fetch(
-      `https://ey-flask-app.herokuapp.com/${params.state}`,
-      {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-        },
-      }
-    );
+    const response = await fetch(`${hostedUrl}${params.state}`, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+    });
     const data = await response.json();
 
     console.log(data.Data);
@@ -186,7 +186,7 @@ function StatesPage() {
 
     console.log(inputYear, inputArea);
 
-    fetch('https://ey-flask-app.herokuapp.com/predict/TFA', {
+    fetch(`${hostedUrl}TFA`, {
       method: 'POST',
       // mode: 'no-cors',
       headers: {
@@ -211,9 +211,12 @@ function StatesPage() {
   return (
     <React.Fragment>
       <Container className='main-container' fluid>
-        <Row style={{ height: '100%' }} className='map-page-row'>
+        <Row
+          style={{ height: '100%' }}
+          className='map-page-row map-page-row-top'
+        >
           {/* col-left */}
-          <Col style={{ height: '100%' }}>
+          <Col style={{ height: '100%' }} className='left-col'>
             <Row>
               <Col style={{ height: '100%' }} className='left-container'>
                 <div className='left-container__heading'>
@@ -259,10 +262,7 @@ function StatesPage() {
                   </div>
 
                   <div className='prediction-input--submit'>
-                    <button
-                      type='submit'
-                      // onClick={onSubmitPostRequest}
-                    >
+                    <button type='submit' onClick={onSubmitPostRequest}>
                       Go{' '}
                     </button>
                   </div>
@@ -281,6 +281,7 @@ function StatesPage() {
               justifyContent: 'center',
               position: 'relative',
             }}
+            className='mid-col'
           >
             <div className='map-toggle-buttons'>
               {/* <Button
@@ -312,7 +313,7 @@ function StatesPage() {
               <select
                 value={view}
                 onChange={(e) => {
-                  console.log(e.target.value);
+                  // console.log(e.target.value);
                   setView(e.target.value);
                 }}
               >
@@ -362,14 +363,17 @@ function StatesPage() {
           </Col>
 
           {/* col-right */}
-          <Col style={{ height: '100%' }}>
+          <Col style={{ height: '100%' }} className='right-col'>
             <Row style={{ height: '100%' }}>
-              <Col style={{ height: '100%' }} className='right-container'>
+              <Col
+                style={{ height: '100%', padding: ' 2rem' }}
+                className='right-container'
+              >
                 <Card
                   bg='light'
                   // border='light'
                   style={{
-                    width: '262px',
+                    width: '100%',
                     border: '1px transparent',
                     height: '100%',
                     overflow: 'hidden',
@@ -405,7 +409,7 @@ function StatesPage() {
                 </Card>
                 <Card
                   bg='light'
-                  style={{ width: '90%' }}
+                  style={{ width: '100%' }}
                   className='mb-2 right-container__bottom box-shadow-main global-card-styles'
                   // border='light'
                 >
@@ -438,12 +442,12 @@ function StatesPage() {
           </Col>
         </Row>
 
-        {/* 4-cards */}
+        {/* 3-cards */}
         <Row className='map-page-row'>
-          <Col className='container-card'>
+          <Col className='container-card aqi-meter' style={{ padding: '2rem' }}>
             <Card
               bg='light'
-              style={{ width: '90%' }}
+              style={{ width: '100%' }}
               className='mb-2 right-container__bottom box-shadow-main global-card-styles'
               // border='light'
             >
@@ -467,16 +471,17 @@ function StatesPage() {
                     <GaugeChart aqiParams={aqiParams} aqiArr={aqiArr} />
                   </>
                 )}
-
-                <Card.Title></Card.Title>
               </Card.Body>
             </Card>
           </Col>
-          <Col className='container-card'>
+          <Col
+            className='container-card land-cover-graph'
+            style={{ padding: '2rem' }}
+          >
             <Card
               bg='light'
-              style={{ width: '90%' }}
-              className='mb-2 right-container__bottom box-shadow-main global-card-styles'
+              style={{ width: '100%' }}
+              className='mb-2 right-container__bottom box-shadow-main global-card-styles land-cover-graph-card'
               // border='light'
             >
               <Card.Body>
@@ -507,11 +512,14 @@ function StatesPage() {
               </Card.Body>
             </Card>
           </Col>
-          <Col className='container-card'>
+          <Col
+            className='container-card rainfall-graph'
+            style={{ padding: '2rem' }}
+          >
             <Card
               bg='light'
-              style={{ width: '90%' }}
-              className='mb-2 right-container__bottom box-shadow-main global-card-styles'
+              style={{ width: '100%' }}
+              className='mb-2 right-container__bottom box-shadow-main global-card-styles rainfall-graph-card'
               // border='light'
             >
               <Card.Body>
@@ -539,78 +547,7 @@ function StatesPage() {
               </Card.Body>
             </Card>
           </Col>
-
-          {/* <Col className='container-card'>
-          <Card
-            bg='light'
-            style={{ width: '90%', height: '100%' }}
-            className='mb-2 right-container__bottom box-shadow-main global-card-styles'
-            // border='light'
-          >
-            <Card.Body style={{ height: '100%' }}> */}
-          {/* <div className='prediction-title'>
-                <h3>Enter Values To Predict</h3>
-              </div> */}
-          {/* <div className='prediction-input--year'>
-               
-              </div>
-              <div className='prediction-input--area'>
-               
-              </div>
-              <div className='prediction-submit'>
-                
-              </div> */}
-          {/* <input
-                type='text'
-                value={inputYear}
-                onChange={(e) => setInputYear(e.target.value)}
-                id='input-year'
-              />
-              <input
-                type='text'
-                value={inputArea}
-                onChange={(e) => setInputArea(e.target.value)}
-                id='input-area'
-              />
-              <button type='submit' onClick={onSubmitPostRequest}>
-                Go{' '}
-              </button> */}
-          {/* <div className='prediction-result'>{predictedResult}</div> */}
-          {/* </Card.Body>
-          </Card>
-        </Col> */}
         </Row>
-        {/* <Row className='map-page-row'>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </Table>
-        </Row> */}
       </Container>
     </React.Fragment>
   );

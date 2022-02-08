@@ -35,6 +35,9 @@ import ComboChart2 from '../components/maps/ComboChart/ComboChart2';
 import Top5BarChart from '../components/maps/BarChart/Top5BarChart';
 import Bottom5BarChart from '../components/maps/BarChart/Bottom5BarChart';
 
+const localUrl = 'http://127.0.0.1:5000/';
+const hostedUrl = 'https://ey-flask-app.herokuapp.com/';
+
 function MapPage() {
   const [normalSelected, setNormalSelected] = useState(true);
 
@@ -67,7 +70,7 @@ function MapPage() {
   const [view, setView] = useState('Normal View');
 
   const fetchData = async () => {
-    const response = await fetch('https://ey-flask-app.herokuapp.com/', {
+    const response = await fetch(hostedUrl, {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
@@ -76,7 +79,7 @@ function MapPage() {
 
     const data = await response.json();
 
-    console.log(data.Data);
+    // console.log(data.Data);
 
     setYears(Object.keys(data.Data));
 
@@ -167,7 +170,7 @@ function MapPage() {
     const formData = new FormData();
     formData.append('year', year);
 
-    const response = await fetch('https://ey-flask-app.herokuapp.com/state', {
+    const response = await fetch(`${hostedUrl}state`, {
       method: 'POST',
       headers: {
         'Access-Control-Allow-Origin': '*',
@@ -177,7 +180,7 @@ function MapPage() {
 
     const data = await response.json();
 
-    // console.log(data);
+    console.log(data);
     setStateApi(data);
 
     updateStackedData(data);
@@ -187,7 +190,7 @@ function MapPage() {
     const formData = new FormData();
     formData.append('year', year);
 
-    const response = await fetch('https://ey-flask-app.herokuapp.com/state', {
+    const response = await fetch(`${hostedUrl}state`, {
       method: 'POST',
       headers: {
         'Access-Control-Allow-Origin': '*',
@@ -210,13 +213,14 @@ function MapPage() {
     setComboChartData2(comboData);
   };
 
-  const updateStackedData = (data) => {
-    console.log('clicked here');
+  const updateStackedData = (data, param = 'Annual Rainfall') => {
+    // console.log('clicked here');
+    console.log(data, param);
 
     const sortData = Object.keys(data)
       .filter((state) => state !== 'India')
       .map((state) => {
-        return [state, data[state][topBottomParam]];
+        return [state, data[state][param]];
       });
 
     // console.log(sortData);
@@ -240,7 +244,7 @@ function MapPage() {
 
     formData.append('tag', hashtag);
 
-    const response = await fetch('https://ey-flask-app.herokuapp.com/rating', {
+    const response = await fetch(`${hostedUrl}rating`, {
       method: 'POST',
       headers: {
         'Access-Control-Allow-Origin': '*',
@@ -249,7 +253,7 @@ function MapPage() {
     });
 
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
 
     setTweetNRating(data);
   };
@@ -262,9 +266,9 @@ function MapPage() {
     formData.append('year', inputYear);
     formData.append('area', inputArea);
 
-    console.log(inputYear, inputArea);
+    // console.log(inputYear, inputArea);
 
-    fetch('https://ey-flask-app.herokuapp.com/predict/TFA', {
+    fetch(`${hostedUrl}predict/TFA`, {
       method: 'POST',
       // mode: 'no-cors',
       headers: {
@@ -277,7 +281,7 @@ function MapPage() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data['Result']);
+        // console.log(data['Result']);
         setPredictedResult(data['Result']);
       });
   };
@@ -288,6 +292,7 @@ function MapPage() {
   }, [dataApi.length]);
 
   useEffect(() => {
+    console.log(topBottomYear);
     stateData(topBottomYear);
   }, [topBottomYear]);
 
@@ -349,10 +354,7 @@ function MapPage() {
                   </div>
 
                   <div className='prediction-input--submit'>
-                    <button
-                      type='submit'
-                      // onClick={onSubmitPostRequest}
-                    >
+                    <button type='submit' onClick={onSubmitPostRequest}>
                       Go{' '}
                     </button>
                   </div>
@@ -377,7 +379,7 @@ function MapPage() {
               <select
                 value={view}
                 onChange={(e) => {
-                  console.log(e.target.value);
+                  // console.log(e.target.value);
                   setView(e.target.value);
                 }}
               >
@@ -682,10 +684,12 @@ function MapPage() {
             >
               {/* parameters */}
               <select
-                value='Mangrove Forest Area'
+                value={topBottomParam}
                 onChange={(e) => {
+                  console.log(e.target.value);
+                  const param = e.target.value;
                   setTopBottomParam(e.target.value);
-                  updateStackedData(stateApi);
+                  updateStackedData(stateApi, param);
                 }}
               >
                 <option value='Annual Rainfall'>Annual Rainfall</option>
