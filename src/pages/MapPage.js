@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
-import data from '../india.min.geo.json';
+import data from '../ind.geo.json';
 import GeoChart from '../components/GeoChart';
 import {
   Button,
@@ -35,8 +35,8 @@ import ComboChart2 from '../components/maps/ComboChart/ComboChart2';
 import Top5BarChart from '../components/maps/BarChart/Top5BarChart';
 import Bottom5BarChart from '../components/maps/BarChart/Bottom5BarChart';
 
-const localUrl = 'http://127.0.0.1:5000/';
-const hostedUrl = 'https://ey-flask-app.herokuapp.com/';
+// const url = 'http://127.0.0.1:5000/';
+const url = 'http://35.198.236.186:5000/';
 
 function MapPage() {
   const [normalSelected, setNormalSelected] = useState(true);
@@ -70,7 +70,8 @@ function MapPage() {
   const [view, setView] = useState('Normal View');
 
   const fetchData = async () => {
-    const response = await fetch(hostedUrl, {
+    const response = await fetch(url, {
+      // mode: 'no-cors',
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
@@ -170,8 +171,9 @@ function MapPage() {
     const formData = new FormData();
     formData.append('year', year);
 
-    const response = await fetch(`${hostedUrl}state`, {
+    const response = await fetch(`${url}state`, {
       method: 'POST',
+      // mode: 'no-cors',
       headers: {
         'Access-Control-Allow-Origin': '*',
       },
@@ -190,8 +192,9 @@ function MapPage() {
     const formData = new FormData();
     formData.append('year', year);
 
-    const response = await fetch(`${hostedUrl}state`, {
+    const response = await fetch(`${url}state`, {
       method: 'POST',
+      // mode: 'no-cors',
       headers: {
         'Access-Control-Allow-Origin': '*',
       },
@@ -244,8 +247,9 @@ function MapPage() {
 
     formData.append('tag', hashtag);
 
-    const response = await fetch(`${hostedUrl}rating`, {
+    const response = await fetch(`${url}rating`, {
       method: 'POST',
+      // mode: 'no-cors',
       headers: {
         'Access-Control-Allow-Origin': '*',
       },
@@ -268,7 +272,7 @@ function MapPage() {
 
     // console.log(inputYear, inputArea);
 
-    fetch(`${hostedUrl}predict/TFA`, {
+    fetch(`${url}predict/TFA`, {
       method: 'POST',
       // mode: 'no-cors',
       headers: {
@@ -843,7 +847,7 @@ function MapPage() {
                     style={{ height: '100%' }}
                     onClick={(e) => {
                       e.preventDefault();
-                      // getTweetRating();
+                      getTweetRating();
                     }}
                   >
                     Submit

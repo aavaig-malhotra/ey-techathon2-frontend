@@ -29,9 +29,9 @@ function GeoChart({ data, property }) {
       .data(data.features)
       .join('path')
       .on('click', (event, feature) => {
-        console.log(feature.properties['NAME_1']);
+        console.log(feature.properties['ST_NM']);
         // setSelectedState(selectedState === feature ? null : feature);
-        navigate(`/${feature.properties['NAME_1']}`);
+        navigate(`/${feature.properties['ST_NM']}`);
       })
       .attr('class', 'state')
       .attr('fill', '#add8e6')

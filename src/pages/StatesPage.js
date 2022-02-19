@@ -36,8 +36,8 @@ import HimachalPradeshClimate from '../components/gifMaps/HimachalPradeshClimate
 import TamilNaduClimate from '../components/gifMaps/TamilNaduClimate';
 import HimachalPradeshVegetation from '../components/gifMaps/HimachalPradeshVegetation';
 
-const localUrl = 'http://127.0.0.1:5000/';
-const hostedUrl = 'https://ey-flask-app.herokuapp.com/';
+// const url = 'http://127.0.0.1:5000/';
+const url = 'http://35.198.236.186:5000/';
 
 function StatesPage() {
   const params = useParams();
@@ -75,7 +75,7 @@ function StatesPage() {
     .join('')}Climate`;
 
   const fetchData = async () => {
-    const response = await fetch(`${hostedUrl}${params.state}`, {
+    const response = await fetch(`${url}${params.state}`, {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
@@ -186,7 +186,7 @@ function StatesPage() {
 
     console.log(inputYear, inputArea);
 
-    fetch(`${hostedUrl}TFA`, {
+    fetch(`${url}TFA`, {
       method: 'POST',
       // mode: 'no-cors',
       headers: {
