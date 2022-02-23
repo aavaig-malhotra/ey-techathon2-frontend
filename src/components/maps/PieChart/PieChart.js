@@ -9,10 +9,13 @@ function PieChart({ forestDataObject }) {
   const calculate = (val) => (val / 3287469) * 100;
 
   return (
-    <div style={{ overflow: 'hidden' }}>
+    <div style={{ overflow: 'hidden', width: '100%' }}>
       {forestDataObject.length !== 0 && (
         <>
-          <div className='forest-data-selector'>
+          <div
+            className='forest-data-selector'
+            style={{ display: 'flex', alignItems: 'center' }}
+          >
             <select
               value={selectedIndex}
               onChange={(e) => {
@@ -24,6 +27,13 @@ function PieChart({ forestDataObject }) {
                 <option value={idx}>{forestDataObject[idx].year}</option>
               ))}
             </select>
+
+            <h3
+              className='title'
+              style={{ fontWeight: 700, fontSize: '20px', marginLeft: '40px' }}
+            >
+              Distribution of Types of Land Cover
+            </h3>
           </div>
           <Chart
             // width={'100%'}
@@ -46,16 +56,30 @@ function PieChart({ forestDataObject }) {
             }
             data={[
               ['Forest Cover', '%Cover'],
-              ['VDC', calculate(forestDataObject[selectedIndex]['VDC'])],
-              ['MDC', calculate(forestDataObject[selectedIndex]['MDC'])],
-              ['MFC', calculate(forestDataObject[selectedIndex]['MFC'])],
-              ['OFA', calculate(forestDataObject[selectedIndex]['OFA'])],
-              ['SLA', calculate(forestDataObject[selectedIndex]['SLA'])],
+              [
+                'Very Dense Forest Cover (VDC)',
+                calculate(forestDataObject[selectedIndex]['VDC']),
+              ],
+              [
+                'Moderately Dense Forest Cover (MDC)',
+                calculate(forestDataObject[selectedIndex]['MDC']),
+              ],
+              [
+                'Mangrove Forest Cover (MFC)',
+                calculate(forestDataObject[selectedIndex]['MFC']),
+              ],
+              [
+                'Open Forest Area (OFA)',
+                calculate(forestDataObject[selectedIndex]['OFA']),
+              ],
+              [
+                'Scrub Land Area (SLA)',
+                calculate(forestDataObject[selectedIndex]['SLA']),
+              ],
             ]}
             options={{
               // title: 'Forest Cover of 2019',
               // Just add this option
-              title: 'Distribution of Types of Land Cover',
               // legend: 'non',
               //   is3D: true,
               slices: {
@@ -70,11 +94,14 @@ function PieChart({ forestDataObject }) {
               },
               backgroundColor: 'transparent',
               chartArea: {
-                width: '60%',
-                height: '60%',
+                width: '100%',
+                height: '85%',
+                right: 0,
+                // left: '25%',
               },
               legend: {
-                position: 'bottom',
+                position: 'labeled',
+                textStyle: { fontSize: 16 },
               },
             }}
             rootProps={{ 'data-testid': '2' }}

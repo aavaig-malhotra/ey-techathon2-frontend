@@ -35,8 +35,8 @@ import ComboChart2 from '../components/maps/ComboChart/ComboChart2';
 import Top5BarChart from '../components/maps/BarChart/Top5BarChart';
 import Bottom5BarChart from '../components/maps/BarChart/Bottom5BarChart';
 
-// const url = 'http://127.0.0.1:5000/';
-const url = 'http://35.198.236.186:5000/';
+const url = 'http://127.0.0.1:5000/';
+// const url = 'http://35.198.236.186:5000/';
 
 function MapPage() {
   const [normalSelected, setNormalSelected] = useState(true);
@@ -574,7 +574,7 @@ function MapPage() {
           >
             <Card
               bg='light'
-              style={{ width: '100%' }}
+              style={{ width: '100%', height: '100%' }}
               className='mb-2 right-container__bottom box-shadow-main global-card-styles rainfall-graph-card'
               // border='light'
             >
@@ -594,12 +594,10 @@ function MapPage() {
                     </div>
                   </>
                 ) : (
-                  <>
+                  <div style={{ height: '100% !important' }}>
                     <LineChart2 rainfall={rainfall} />
-                  </>
+                  </div>
                 )}
-
-                <Card.Title></Card.Title>
               </Card.Body>
             </Card>
           </Col>
@@ -799,7 +797,7 @@ function MapPage() {
             xs
             lg={6}
             className='map-page-bottom-container-2'
-            style={{ padding: '2rem' }}
+            style={{ padding: '0 2rem 2rem 2rem' }}
           >
             {' '}
             <Card
@@ -837,14 +835,24 @@ function MapPage() {
                     size='lg'
                     type='text'
                     placeholder='#Hashtag'
-                    style={{ width: '80%', marginRight: '2rem' }}
+                    style={{
+                      width: '80%',
+                      marginRight: '2rem',
+                      fontSize: '16px',
+                    }}
                     value={hashtag}
                     onChange={(e) => setHashtag(e.target.value)}
                   />
                   <Button
                     variant='primary'
                     type='submit'
-                    style={{ height: '100%' }}
+                    style={{
+                      height: '35px',
+                      fontSize: '16px',
+                      textTransform: 'uppercase',
+                      width: '25%',
+                      marginBottom: 0,
+                    }}
                     onClick={(e) => {
                       e.preventDefault();
                       getTweetRating();
@@ -854,7 +862,7 @@ function MapPage() {
                   </Button>
                 </div>
 
-                <ListGroup as='ol'>
+                <ListGroup as='ol' style={{ fontSize: '16px' }}>
                   {tweetNRating !== null &&
                     Object.keys(tweetNRating).map((tweet) => {
                       if (tweetNRating[tweet] === 'Positive') {

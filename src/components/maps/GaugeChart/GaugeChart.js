@@ -42,7 +42,9 @@ function GaugeChart({ aqiParams, aqiArr }) {
               </select>
             </div>
 
-            <h3 className='title'>AQI Meter</h3>
+            <h3 className='title' style={{ fontWeight: 700, fontSize: '20px' }}>
+              AQI Meter
+            </h3>
             <div className='year-selector'>
               <select
                 onChange={(e) => {

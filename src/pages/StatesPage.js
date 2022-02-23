@@ -36,8 +36,8 @@ import HimachalPradeshClimate from '../components/gifMaps/HimachalPradeshClimate
 import TamilNaduClimate from '../components/gifMaps/TamilNaduClimate';
 import HimachalPradeshVegetation from '../components/gifMaps/HimachalPradeshVegetation';
 
-// const url = 'http://127.0.0.1:5000/';
-const url = 'http://35.198.236.186:5000/';
+const url = 'http://127.0.0.1:5000/';
+// const url = 'http://35.198.236.186:5000/';
 
 function StatesPage() {
   const params = useParams();

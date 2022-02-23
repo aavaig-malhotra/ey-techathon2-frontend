@@ -26,14 +26,26 @@ function LineChart3({ dataApi, forestCover, years, forestData }) {
             </>
           }
           data={[
-            ['years', 'TFC', 'VDC', 'MDC', 'MFC', 'OFA', 'SLA'],
+            [
+              'years',
+              'Total Forest Cover (TFC)',
+              'Very Dense Forest Cover (VDC) ',
+              'Moderately Dense Forest Area (MDA) ',
+              'Mangrove Forest Area (MFA)',
+              'Open Forest Area (OFA)',
+              'Scrub Land Area (SLA)',
+            ],
 
             ...forestData,
           ]}
           options={{
             title: 'Types of Land Cover : TrendLine',
+            titleTextStyle: {
+              fontSize: 18,
+            },
             hAxis: {
               title: 'Year',
+              showTextEvery: 3,
             },
             vAxis: {
               title: 'Forest Area (in sq. km.)',
@@ -41,15 +53,28 @@ function LineChart3({ dataApi, forestCover, years, forestData }) {
               viewWindow: { min: 0 },
             },
             series: {
+              0: { curveType: 'function' },
               1: { curveType: 'function' },
+              2: { curveType: 'function' },
+              3: { curveType: 'function' },
+              4: { curveType: 'function' },
+              5: { curveType: 'function' },
             },
             backgroundColor: 'transparent',
             chartArea: {
-              width: '80%',
-              height: '60%',
+              width: '70%',
+              height: '73%',
+              top: '10%',
+              right: '8%',
+              left: '14%',
             },
             legend: {
               position: 'bottom',
+              // maxLines: 2,
+            },
+            lineWidth: 3,
+            tooltip: {
+              ignoreBounds: true,
             },
           }}
           rootProps={{ 'data-testid': '2' }}

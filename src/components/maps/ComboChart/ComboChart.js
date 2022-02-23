@@ -4,7 +4,7 @@ import { Spinner } from 'react-bootstrap';
 
 function ComboChart({ comboChartData }) {
   return (
-    <div style={{ overflowY: 'hidden', height: '80%' }}>
+    <div style={{ overflowY: 'hidden', height: '95%' }}>
       {comboChartData.length !== 0 && (
         <Chart
           width={'100%'}
@@ -25,26 +25,53 @@ function ComboChart({ comboChartData }) {
               </div>
             </>
           }
-          data={[['Year', 'TFC', 'AR', 'SPM'], ...comboChartData]}
+          data={[
+            [
+              'Year',
+              'Total Forest Cover (TFC)',
+              'Annual Rainfall(AR)',
+              'Suspended Particulate Matter(SPM)',
+            ],
+            ...comboChartData,
+          ]}
           options={{
-            title: 'Relation b/w TFC, AR, SPM',
+            title:
+              'Relation b/w Total Forest Cover , Annual Rainfall, Suspended Particulate Matter',
+            titleTextStyle: {
+              fontSize: 17,
+            },
+
             vAxis: {
               title: 'Annual Data',
               viewWindowMode: 'explicit',
               viewWindow: { min: 0 },
             },
-            hAxis: { title: 'Year' },
+
+            hAxis: { title: 'Year', showTextEvery: 3 },
             seriesType: 'bars',
             // series: { 5: { type: 'line' }, 3: { type: 'line' } },
             //   series: {  },
-            series: { 1: { type: 'line' }, 2: { type: 'line' } },
+            series: {
+              1: { type: 'line', curveType: 'function' },
+              2: { type: 'line', curveType: 'function' },
+            },
             backgroundColor: 'transparent',
             chartArea: {
               width: '70%',
               height: '73%',
+              top: '10%',
+              right: '10%',
+              // left: '10',
             },
+            colors: ['lightpink', 'darkgreen', 'blue'],
             legend: {
               position: 'bottom',
+              maxLines: 2,
+            },
+            lineWidth: 3,
+            // tooltip: { textStyle: { color: '#FF0000' }, showColorCode: true },
+            tooltip: {
+              ignoreBounds: true,
             },
           }}
           rootProps={{ 'data-testid': '1' }}

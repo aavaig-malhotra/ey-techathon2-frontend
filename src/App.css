@@ -195,6 +195,10 @@ button {
   width: 90%;
 }
 
+.rainfall-graph-card div div div {
+  height: 100% !important;
+}
+
 @media only screen and (max-width: 1200px) {
   .main-container {
     width: 100% !important;
