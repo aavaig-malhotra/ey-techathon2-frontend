@@ -514,11 +514,11 @@ function StatesPage() {
           </Col>
           <Col
             className='container-card rainfall-graph'
-            style={{ padding: '2rem' }}
+            style={{ padding: '2rem', overflow: 'hidden' }}
           >
             <Card
               bg='light'
-              style={{ width: '100%' }}
+              style={{ width: '100%', height: '100%' }}
               className='mb-2 right-container__bottom box-shadow-main global-card-styles rainfall-graph-card'
               // border='light'
             >
@@ -538,12 +538,10 @@ function StatesPage() {
                     </div>
                   </>
                 ) : (
-                  <>
+                  <div style={{ height: '100% !important' }}>
                     <LineChart2 rainfall={rainfall} />
-                  </>
+                  </div>
                 )}
-
-                <Card.Title></Card.Title>
               </Card.Body>
             </Card>
           </Col>
