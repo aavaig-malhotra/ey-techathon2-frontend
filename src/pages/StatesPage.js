@@ -37,12 +37,17 @@ import TamilNaduClimate from '../components/gifMaps/TamilNaduClimate';
 import HimachalPradeshVegetation from '../components/gifMaps/HimachalPradeshVegetation';
 
 // const url = 'http://127.0.0.1:5000/';
-const url = 'http://35.198.236.186:5000/';
+// const url = 'http://35.198.236.186:5000/';
+const url = 'https://aavaig-malhotra.fun/';
 
 function StatesPage() {
   const params = useParams();
 
+  console.log(params.state.toLowerCase());
+
   const data = require(`../geojson/${params.state.toLowerCase()}.geo.json`);
+
+  console.log(data);
 
   const [normalSelected, setNormalSelected] = useState(true);
 

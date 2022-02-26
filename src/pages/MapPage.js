@@ -36,7 +36,8 @@ import Top5BarChart from '../components/maps/BarChart/Top5BarChart';
 import Bottom5BarChart from '../components/maps/BarChart/Bottom5BarChart';
 
 // const url = 'http://127.0.0.1:5000/';
-const url = 'http://35.198.236.186:5000/';
+// const url = 'http://35.198.236.186:5000/';
+const url = 'https://aavaig-malhotra.fun/';
 
 function MapPage() {
   const [normalSelected, setNormalSelected] = useState(true);

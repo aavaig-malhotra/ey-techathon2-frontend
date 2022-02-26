@@ -26,7 +26,7 @@ function GeoChart({ data, property }) {
 
     svg
       .selectAll('.state')
-      .data(data.features)
+      .data(data.features || data.coordinates)
       .join('path')
       .on('click', (event, feature) => {
         console.log(feature.properties['ST_NM']);
