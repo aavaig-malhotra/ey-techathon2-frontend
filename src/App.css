@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 svg {
   display: block;
@@ -130,9 +131,9 @@ button {
 
 .map-toggle-buttons {
   position: absolute;
-  width: 30%;
-  top: 5px;
-  right: 0;
+  /* width: 30%; */
+  top: 3rem;
+  right: 1rem;
   z-index: 69;
 }
 

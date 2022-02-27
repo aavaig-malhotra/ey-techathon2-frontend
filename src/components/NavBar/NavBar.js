@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../../images/geosis.png';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import './NavBar.css';
@@ -17,37 +18,18 @@ function NavBar() {
       >
         <Container>
           <div className='greenary-logo' onClick={() => navigate(`/`)}>
+            <div
+              className='logo-container'
+              style={{ height: '40px', marginRight: '10px' }}
+            >
+              <img
+                src={logo}
+                alt='geosis logo'
+                style={{ height: '100%', width: '100%' }}
+              />
+            </div>
             GeoSis
           </div>
-          {/* <div className='greenary-dropdown-menu'>
-            <Navbar.Toggle aria-controls='navbar-dark-example' />
-            <Navbar.Collapse
-              id='navbar-dark-example'
-              className='dropdown-menu-container'
-            >
-              <Nav className='dropdown'>
-                <NavDropdown
-                  id='nav-dropdown-dark-example'
-                  title='State / UTs'
-                  menuVariant='dark'
-                  className='dropdown-item-container'
-                  style={{ width: '100% !important' }}
-                >
-                  <NavDropdown.Item href='#action/3.1'>Action</NavDropdown.Item>
-                  <NavDropdown.Item href='#action/3.2'>
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href='#action/3.3'>
-                    Something
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href='#action/3.4'>
-                    Separated link
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </Nav>
-            </Navbar.Collapse>
-          </div> */}
         </Container>
       </Navbar>
     </>

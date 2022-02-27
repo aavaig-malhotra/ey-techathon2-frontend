@@ -25,9 +25,23 @@ function ComboChart2({ comboChartData }) {
               </div>
             </>
           }
-          data={[['State', 'TFC', 'AR', 'SO2', 'DTFC'], ...comboChartData]}
+          data={[
+            [
+              'State',
+              'Total Forest Cover',
+              'Annual Rainfall',
+              'SO2',
+              'Density of Total Forest Cover',
+            ],
+            ...comboChartData,
+          ]}
           options={{
-            title: 'Relation b/w Total Forest Cover, AR, SO2 & DTFC',
+            title:
+              'Relation b/w Total Forest Cover, Annual Rainfall, SO2 & Density of Total Forest Cover',
+
+            titleTextStyle: {
+              fontSize: 20,
+            },
             vAxis: {
               title: 'Annual Data',
               viewWindowMode: 'explicit',
@@ -42,6 +56,9 @@ function ComboChart2({ comboChartData }) {
             chartArea: {
               width: '80%',
               height: '68%',
+              top: '10%',
+              right: '8%',
+              left: '11%',
             },
             legend: {
               position: 'right',

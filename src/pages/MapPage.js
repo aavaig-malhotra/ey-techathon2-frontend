@@ -183,7 +183,7 @@ function MapPage() {
 
     const data = await response.json();
 
-    console.log(data);
+    // console.log(data);
     setStateApi(data);
 
     updateStackedData(data);
@@ -214,19 +214,25 @@ function MapPage() {
         data[state]['Open Forest Area'],
       ]);
 
-    setComboChartData2(comboData);
+    const sortedComboData = comboData.sort((a, b) => {
+      // console.log(a, b);
+
+      return b[1] + b[2] + b[3] + b[4] - (a[1] + a[2] + a[3] + a[4]);
+    });
+
+    setComboChartData2(sortedComboData);
   };
 
   const updateStackedData = (data, param = 'Annual Rainfall') => {
     // console.log('clicked here');
-    console.log(data, param);
+    // console.log(data, param);
 
     const sortData = Object.keys(data)
       .filter((state) => state !== 'India')
       .map((state) => {
         return [state, data[state][param]];
-      });
-
+      })
+      .filter((data) => data[1] !== 0);
     // console.log(sortData);
 
     const sortedData = [...sortData];
@@ -258,9 +264,24 @@ function MapPage() {
     });
 
     const data = await response.json();
-    // console.log(data);
+    console.log(data);
 
-    setTweetNRating(data);
+    let i = 1;
+    const filteredData = {};
+
+    for (const prop in data) {
+      if (i === 6) {
+        break;
+      }
+      console.log(prop);
+      filteredData[prop] = data[prop];
+      i++;
+    }
+
+    // const filteredData = data.filter((data, idx) => idx < 6);
+    console.log(filteredData);
+
+    setTweetNRating(filteredData);
   };
 
   const onSubmitPostRequest = (e) => {
@@ -297,7 +318,7 @@ function MapPage() {
   }, [dataApi.length]);
 
   useEffect(() => {
-    console.log(topBottomYear);
+    // console.log(topBottomYear);
     stateData(topBottomYear);
   }, [topBottomYear]);
 
@@ -377,6 +398,7 @@ function MapPage() {
               flexDirection: 'column',
               justifyContent: 'center',
               position: 'relative',
+              padding: '2.5rem 0',
             }}
             className='mid-col'
           >
@@ -396,27 +418,28 @@ function MapPage() {
                 <option value='Climate Timelapse'>Climate Timelapse</option>
               </select>
             </div>
-            <></>
-            {view === 'Normal View' && (
-              <>
-                <GeoChart data={data} />
-              </>
-            )}
-            {view === 'Satellite View' && (
-              <>
-                <MapBox />
-              </>
-            )}
-            {view === 'Vegetation Timelapse' && (
-              <>
-                <IndiaVegetation />
-              </>
-            )}
-            {view === 'Climate Timelapse' && (
-              <>
-                <IndiaClimate />
-              </>
-            )}
+            <div style={{ height: '100%', overflow: 'hidden' }}>
+              {view === 'Normal View' && (
+                <>
+                  <GeoChart data={data} />
+                </>
+              )}
+              {view === 'Satellite View' && (
+                <>
+                  <MapBox />
+                </>
+              )}
+              {view === 'Vegetation Timelapse' && (
+                <>
+                  <IndiaVegetation />
+                </>
+              )}
+              {view === 'Climate Timelapse' && (
+                <>
+                  <IndiaClimate />
+                </>
+              )}
+            </div>
           </Col>
 
           {/* col-right */}
@@ -612,7 +635,7 @@ function MapPage() {
               className='mb-2 right-container__bottom box-shadow-main global-card-styles combo-chart-card'
               // border='light'
             >
-              <Card.Body style={{ height: '40rem' }}>
+              <Card.Body style={{ height: '45rem' }}>
                 <div className='select-dropdowns combo-select-year'>
                   <select
                     value={comboData2Year}
@@ -666,7 +689,7 @@ function MapPage() {
 
         <Row
           className='map-page-row map-page-bottom-row'
-          style={{ paddingBottom: '10px' }}
+          style={{ padding: '2rem 0' }}
         >
           <Col
             xs
@@ -689,7 +712,7 @@ function MapPage() {
               <select
                 value={topBottomParam}
                 onChange={(e) => {
-                  console.log(e.target.value);
+                  // console.log(e.target.value);
                   const param = e.target.value;
                   setTopBottomParam(e.target.value);
                   updateStackedData(stateApi, param);
@@ -745,6 +768,7 @@ function MapPage() {
                 justifyContent: 'space-between',
                 // alignItems: 'center',
                 width: '100%',
+                flex: '1',
               }}
             >
               <Row
