@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../images/geosis.png';
+import logo from '../../images/geosis-removebg-preview.png';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import './NavBar.css';

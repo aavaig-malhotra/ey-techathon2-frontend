@@ -9,7 +9,7 @@ function IndiaVegetation({ area = 'india' }) {
       <img
         src={logo}
         alt='india vegetation'
-        style={{ width: '100%', height: '100%' }}
+        style={{ height: '78%', width: '100%' }}
       />
     </div>
   );

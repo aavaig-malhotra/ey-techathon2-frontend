@@ -34,12 +34,15 @@ import CountUp from 'react-countup';
 import ComboChart2 from '../components/maps/ComboChart/ComboChart2';
 import Top5BarChart from '../components/maps/BarChart/Top5BarChart';
 import Bottom5BarChart from '../components/maps/BarChart/Bottom5BarChart';
+import { useNavigate } from 'react-router-dom';
 
 // const url = 'http://127.0.0.1:5000/';
 // const url = 'http://35.198.236.186:5000/';
 const url = 'https://aavaig-malhotra.fun/';
 
 function MapPage() {
+  let navigate = useNavigate();
+
   const [normalSelected, setNormalSelected] = useState(true);
 
   const [indiaData, setIndiaData] = useState([]);
@@ -160,8 +163,8 @@ function MapPage() {
     const comboData = Object.keys(data.Data).map((year) => [
       year,
       data.Data[year]['Total Forest Cover Area'],
-      data.Data[year]['N_Annual_Rainfall'],
-      data.Data[year]['N_SPM'],
+      data.Data[year]['N_Annual_Rainfall'] * 12,
+      // data.Data[year]['N_SPM'],
     ]);
 
     // console.log(comboData);
@@ -312,6 +315,11 @@ function MapPage() {
       });
   };
 
+  const onhandleAnalysisClick = (e) => {
+    e.preventDefault();
+    navigate('/detailed-analysis');
+  };
+
   useEffect(() => {
     fetchData();
     getTweetRating();
@@ -387,6 +395,17 @@ function MapPage() {
                 </div>
               </Col>
             </Row>
+            <Row style={{ marginTop: '5rem' }}>
+              <Col>
+                <div className='prediction-form'>
+                  <div className='prediction-input--submit'>
+                    <button type='submit' onClick={onhandleAnalysisClick}>
+                      Detailed Analysis Click Here
+                    </button>
+                  </div>
+                </div>
+              </Col>
+            </Row>
           </Col>
 
           {/* col-middle */}
@@ -398,7 +417,7 @@ function MapPage() {
               flexDirection: 'column',
               justifyContent: 'center',
               position: 'relative',
-              padding: '2.5rem 0',
+              padding: '2.5rem 0 0 0',
             }}
             className='mid-col'
           >

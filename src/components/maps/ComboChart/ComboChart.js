@@ -26,17 +26,11 @@ function ComboChart({ comboChartData }) {
             </>
           }
           data={[
-            [
-              'Year',
-              'Total Forest Cover (TFC)',
-              'Annual Rainfall(AR)',
-              'Suspended Particulate Matter(SPM)',
-            ],
+            ['Year', 'Total Forest Cover (TFC)', 'Annual Rainfall(AR)'],
             ...comboChartData,
           ]}
           options={{
-            title:
-              'Relation b/w Total Forest Cover , Annual Rainfall, Suspended Particulate Matter',
+            title: 'Relation b/w Total Forest Cover , Annual Rainfal',
             titleTextStyle: {
               fontSize: 17,
             },
