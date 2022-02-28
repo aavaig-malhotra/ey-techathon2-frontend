@@ -1,29 +1,32 @@
 {
   "files": {
     "main.css": "/static/css/main.025a81d6.chunk.css",
-    "main.js": "/static/js/main.1e5a3a3b.chunk.js",
-    "main.js.map": "/static/js/main.1e5a3a3b.chunk.js.map",
+    "main.js": "/static/js/main.7fd91c09.chunk.js",
+    "main.js.map": "/static/js/main.7fd91c09.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.b7d7a15d.js",
     "runtime-main.js.map": "/static/js/runtime-main.b7d7a15d.js.map",
-    "static/js/2.45586560.chunk.js": "/static/js/2.45586560.chunk.js",
-    "static/js/2.45586560.chunk.js.map": "/static/js/2.45586560.chunk.js.map",
+    "static/js/2.14d0f504.chunk.js": "/static/js/2.14d0f504.chunk.js",
+    "static/js/2.14d0f504.chunk.js.map": "/static/js/2.14d0f504.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.025a81d6.chunk.css.map": "/static/css/main.025a81d6.chunk.css.map",
-    "static/js/2.45586560.chunk.js.LICENSE.txt": "/static/js/2.45586560.chunk.js.LICENSE.txt",
+    "static/js/2.14d0f504.chunk.js.LICENSE.txt": "/static/js/2.14d0f504.chunk.js.LICENSE.txt",
+    "static/media/No2.6cb5c0a6.jpg": "/static/media/No2.6cb5c0a6.jpg",
+    "static/media/geosis-removebg-preview.0f93c676.png": "/static/media/geosis-removebg-preview.0f93c676.png",
     "static/media/gujarat_climate.50d98e75.gif": "/static/media/gujarat_climate.50d98e75.gif",
     "static/media/gujarat_vegetation.28bf227e.gif": "/static/media/gujarat_vegetation.28bf227e.gif",
     "static/media/himachal_pradesh_climate.47142b1a.gif": "/static/media/himachal_pradesh_climate.47142b1a.gif",
     "static/media/himachal_pradesh_vegetation.c8b1dbc2.gif": "/static/media/himachal_pradesh_vegetation.c8b1dbc2.gif",
-    "static/media/india_climate.7902d08d.gif": "/static/media/india_climate.7902d08d.gif",
-    "static/media/india_vegetation.9c85eaf7.gif": "/static/media/india_vegetation.9c85eaf7.gif",
+    "static/media/india_climate.c932841f.gif": "/static/media/india_climate.c932841f.gif",
+    "static/media/india_vegetation.ff39bbf2.gif": "/static/media/india_vegetation.ff39bbf2.gif",
+    "static/media/so2.536466da.jpg": "/static/media/so2.536466da.jpg",
     "static/media/tamil_nadu_climate.5801fb24.gif": "/static/media/tamil_nadu_climate.5801fb24.gif",
     "static/media/tamil_nadu_vegetation.543a26a0.gif": "/static/media/tamil_nadu_vegetation.543a26a0.gif",
     "static/media/twitter-logo.57573394.png": "/static/media/twitter-logo.57573394.png"
   },
   "entrypoints": [
     "static/js/runtime-main.b7d7a15d.js",
-    "static/js/2.45586560.chunk.js",
+    "static/js/2.14d0f504.chunk.js",
     "static/css/main.025a81d6.chunk.css",
-    "static/js/main.1e5a3a3b.chunk.js"
+    "static/js/main.7fd91c09.chunk.js"
   ]
 }

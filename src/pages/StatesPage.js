@@ -168,7 +168,6 @@ function StatesPage() {
       year,
       data.Data[year]['Total Forest Cover Area'],
       data.Data[year]['N_Annual_Rainfall'],
-      data.Data[year]['N_SPM'],
     ]);
 
     // console.log(comboData);
