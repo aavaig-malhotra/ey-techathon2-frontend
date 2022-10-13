@@ -15,6 +15,6 @@ predecting the forest cover for the entire country or a speicific state, for a s
 
 #
 [Link to Geosis WebApp](https://ey-techathon-2-triggeredtrash.netlify.app)\
-P.S. The backend server was hosted on GCP and has been shut down due to costing.\
+P.S. The backend server was hosted on GCP and has been shut down due to costing.
 
 
